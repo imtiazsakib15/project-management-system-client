@@ -12,7 +12,16 @@ const projectApi = baseApi.injectEndpoints({
         method: "POST",
         body: projectInfo,
       }),
+      invalidatesTags: ["Project"],
+    }),
+    getAllProjects: builder.query({
+      query: () => ({
+        url: "/projects",
+        method: "GET",
+      }),
+      providesTags: ["Project"],
     }),
   }),
 });
-export const { useCreateProjectMutation } = projectApi;
+
+export const { useCreateProjectMutation, useGetAllProjectsQuery } = projectApi;
