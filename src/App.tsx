@@ -1,11 +1,10 @@
-import { Button } from "./components/ui/button";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Button>Click me</Button>
-    </>
+    <div className="bg-gray-100">
+      <Home />
+    </div>
   );
 }
 
