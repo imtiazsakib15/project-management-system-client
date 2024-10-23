@@ -5,7 +5,7 @@ import ProjectsTable from "./ProjectsTable";
 
 const MainSection = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>("");
-  console.log(selectedProjectId);
+
   return (
     <main>
       <Container>

@@ -9,6 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useGetAllProjectsQuery } from "@/redux/features/project/projectApi";
 import { Project } from "@/types";
+import DeleteProjectBtn from "./DeleteProjectBtn";
 
 interface ProjectsTableProps {
   selectedProjectId: string;
@@ -55,9 +56,9 @@ const ProjectsTable = ({
                   >
                     {selectedProjectId === project._id ? "SELECTED" : "SELECT"}
                   </Button>
-                  <Button className="sm:px-5" size={"sm"}>
-                    DELETE
-                  </Button>
+
+                  <DeleteProjectBtn id={project._id} />
+
                   <Button className="sm:px-5" size={"sm"}>
                     RENAME
                   </Button>
