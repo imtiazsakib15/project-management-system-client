@@ -11,7 +11,15 @@ const folderApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["Folder"],
     }),
+    getAllFoldersByProjectId: builder.query({
+      query: (projectId) => ({
+        url: `/folders/${projectId}`,
+        method: "GET",
+      }),
+      providesTags: ["Folder"],
+    }),
   }),
 });
 
-export const { useCreateFolderMutation } = folderApi;
+export const { useCreateFolderMutation, useGetAllFoldersByProjectIdQuery } =
+  folderApi;

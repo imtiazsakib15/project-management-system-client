@@ -30,7 +30,7 @@ const CreateFolder = ({ selectedProjectId }: { selectedProjectId: string }) => {
     const folderInfo = { ...data, projectId: selectedProjectId };
     try {
       const result = await createFolder(folderInfo).unwrap();
-      console.log(result);
+
       if (result.success)
         toast.success(result.message || "Folder created successfully");
       form.reset();
