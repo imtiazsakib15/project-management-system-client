@@ -12,14 +12,24 @@ const folderApi = baseApi.injectEndpoints({
       invalidatesTags: ["Folder"],
     }),
     getAllFoldersByProjectId: builder.query({
-      query: (projectId) => ({
+      query: (projectId: string) => ({
         url: `/folders/${projectId}`,
         method: "GET",
       }),
       providesTags: ["Folder"],
     }),
+    deleteFolder: builder.mutation({
+      query: (id: string) => ({
+        url: `/folders/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Folder"],
+    }),
   }),
 });
 
-export const { useCreateFolderMutation, useGetAllFoldersByProjectIdQuery } =
-  folderApi;
+export const {
+  useCreateFolderMutation,
+  useGetAllFoldersByProjectIdQuery,
+  useDeleteFolderMutation,
+} = folderApi;

@@ -9,7 +9,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useGetAllFoldersByProjectIdQuery } from "@/redux/features/folder/folderApi";
 import { Folder } from "@/types";
-import DeleteProjectBtn from "./DeleteProjectBtn";
+import DeleteFolderBtn from "./DeleteFolderBtn";
 
 interface FoldersTableProps {
   selectedFolderId: string;
@@ -24,7 +24,7 @@ const FoldersTable = ({
 }: FoldersTableProps) => {
   const { data } = useGetAllFoldersByProjectIdQuery(selectedProjectId);
   const folders: Folder[] = data?.data;
-  console.log(folders);
+
   const handleSelectFolder = (id: string) => {
     if (selectedFolderId === id) setSelectedFolderId("");
     else setSelectedFolderId(id);
@@ -59,9 +59,7 @@ const FoldersTable = ({
                     {selectedFolderId === folder._id ? "SELECTED" : "SELECT"}
                   </Button>
 
-                  <Button className="sm:px-5" size={"sm"}>
-                    DELETE
-                  </Button>
+                  <DeleteFolderBtn id={folder._id} />
 
                   <Button className="sm:px-5" size={"sm"}>
                     RENAME
